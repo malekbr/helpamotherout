@@ -4,3 +4,70 @@
 body{
 	font-family: "Hind";
 }
+
+.navbar-brand{
+	font-family: "Montserrat";
+	font-weight: bold;
+}
+
+.navbar-username{
+	font-weight: bold;
+}
+
+.timeline-sidebar{
+
+}
+
+
+.timeline-main{
+	padding : 0px;
+	list-style-type: none;
+}
+
+
+.timeline-year{
+	font-size: 14px;
+}
+
+.timeline-year.unfolded{
+	font-weight: bold;
+
+}
+
+
+.timeline-month-list{
+	font-weight: normal;
+	padding-left: 20px;
+	list-style-type: none;
+	font-size: 14px;
+}
+
+.timeline-month.selected{
+	font-weight: bold;
+}
+
+.memory-entry{
+	padding-top: 20px;
+	font-size: 16px;
+}
+
+.memory-modif{
+	margin-top: 10px;
+}
+
+.memory-modif button{
+	padding: 0px;
+	padding-top: 9px;
+	max-width: 40px;
+	margin-bottom: 5px;
+}
+
+.memory-input-entry{
+	padding-top: 20px;
+	font-size: 16px;
+}
+
+.memory-input-description-field{
+	width: 100%;
+	min-height: 130px;
+}

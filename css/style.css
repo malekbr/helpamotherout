@@ -71,3 +71,17 @@ body{
 	width: 100%;
 	min-height: 130px;
 }
+
+.appointments-input-description-field{
+	width: 100%;
+	min-height: 100px;
+}
+
+.exclamation {
+	font-size: 50px;
+}
+
+#today{
+	text-align: center;
+	border-right: 2px solid #3c763d;
+}

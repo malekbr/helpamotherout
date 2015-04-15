@@ -37,7 +37,7 @@
 					<ul class="nav navbar-nav">
 						<li><a href="index.html">Memories</a></li>
 						<li class="active"><a href="#">Appointments <span class="sr-only">(current)</span></a></li>
-						<li><a href="#">Tasks</a></li>
+						<li><a href="tasks.html">Tasks</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="navbar-text">Hi, <span class="navbar-username">Samantha</span></li>
@@ -94,23 +94,61 @@
 							</div>
 						</div>
 						<hr>
+						<div id="edit-memory1">
+							<form id="memory-input-form">
+								<div class="row memory-input-entry">
+									<div class="col-sm-4">
+										<input type="checkbox" name="reminder" value="email"> Remind me by email<br>
+										<input type="checkbox" style="margin-bottom:20px" name="reminder" value="text" checked> Remind me by text<br>
+										<div id="date" class="input-group date">
+										<input type="text" style="margin-bottom:0px;"placeholder="May 22th, 2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+									</div>
+									</div>
+									<div class="memory-input-description col-sm-8">
+										<textarea class="appointments-input-description-field" placeholder="Skype with Nana at 2pm."></textarea>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-offset-10 col-sm-2"><input type="submit" class="btn btn-primary btn-block" value="Save"></div>
+								</div>
+							</form>
+						</div>
 						<div id="new-memory" style="display:none;">
 							<div class="row memory-entry">
 								<div class="col-sm-11"> <h3>May 22<sup>th</sup>, 2015</h3>
 								Skype with Nana at 2 pm.</div>
 								<div class="col-sm-1 memory-modif">
-									<div><button class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
-									<div><button class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
+									<div><button id="edit-btn1" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
+									<div><button id="delete-btn1" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
 								</div>
 							</div>
 							<hr>
 						</div>
-						<div class="row memory-entry">
+						<div id="edit-memory2">
+							<form id="memory-input-form">
+								<div class="row memory-input-entry">
+									<div class="col-sm-4">
+										<input type="checkbox" name="reminder" value="email"> Remind me by email<br>
+										<input type="checkbox" style="margin-bottom:20px" name="reminder" value="text" checked> Remind me by text<br>
+										<div id="date" class="input-group date">
+										<input type="text" style="margin-bottom:0px;"placeholder="Deceember 25th, 2013" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+									</div>
+									</div>
+									<div class="memory-input-description col-sm-8">
+										<textarea class="appointments-input-description-field" placeholder="Go to Doctor Borat."></textarea>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-offset-10 col-sm-2"><input type="submit" class="btn btn-primary btn-block" value="Save"></div>
+								</div>
+							</form>
+						</div>
+						<div id="memory-entry2" class="row memory-entry">
 							<div class="col-sm-11"> <h3>December 25<sup>th</sup>, 2013</h3>
 							Go to Doctor Borat.</div>
 							<div class="col-sm-1 memory-modif">
-								<div><button class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
-								<div><button class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
+								<div><button id="edit-btn2" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
+								<div><button id="delete-btn2" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
 							</div>
 						</div>
 						<hr>
@@ -137,6 +175,27 @@
 					$('#new-memory').show(400);
 					return false;
 				});
+
+				//Memory Erase buttons
+				$('#delete-btn1').click(function(){
+					$('#new-memory').hide(400)
+				});
+				$('#delete-btn2').click(function(){
+					$('#memory-entry2').hide(400)
+				});
+
+				//Memory Edit buttons
+				$('#edit-memory1').hide();
+				$('#edit-memory2').hide();
+				$('#edit-btn1').click(function(){
+					$('#new-memory').hide(400)
+					$('#edit-memory1').show(400)
+				});
+				$('#edit-btn2').click(function(){
+					$('#memory-entry2').hide()
+					$('#edit-memory2').show(400)
+				});
+
 			});
 		</script>
 		<script src="js/bootstrap-datepicker.min.js"></script>

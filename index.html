@@ -41,7 +41,7 @@
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="navbar-text">Hi, <span class="navbar-username">Samantha</span></li>
-						<li><a href="login.html"><button class="navbar-btn btn btn-primary btn-block">Log out</button></a></li>
+						<li><button id="logout" class="navbar-btn btn btn-primary btn-block">Log out</button></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->		
@@ -217,6 +217,10 @@
 					$('#edit-memory3').show(400)
 				});
 
+
+				$('#logout').click(function(){
+					window.location.href = "login.html";
+				});
 			});
 		</script>
 		<script src="js/bootstrap-datepicker.min.js"></script>

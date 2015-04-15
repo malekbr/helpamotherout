@@ -89,7 +89,7 @@
 					</div>
 					<div id="new-memory" style="display:none;">
 						<div class="row memory-entry">
-							<div class="col-sm-9 col-xs-6">choose a gift for Aladeen from </div>
+							<div class="col-sm-9 col-xs-6"> <p id="mem1text">choose a gift for Aladeen from</p> </div>
 							<div class="btn-group col-sm-3 col-xs-6">
 								<button id="check-btn1" type="button" class="btn   btn-default"><span class="glyphicon glyphicon-ok"></span></button>
 								<button id="edit-btn1" type="button"class="btn  btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
@@ -111,7 +111,7 @@
 						</form>
 					</div>
 					<div id="memory-entry2" class="row memory-entry">
-						<div class="col-sm-9 col-xs-6">tell Mike to buy more diapers</div>
+						<div class="col-sm-9 col-xs-6"><p id="mem2text">tell Mike to buy more diapers</p></div>
 						<div class="btn-group col-sm-3 col-xs-6">
 							<button id="check-btn2" type="button" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span></button>
 							<button id="edit-btn2" type="button"class="btn  btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
@@ -142,10 +142,20 @@
 				});
 				//Check buttons
 				$("#check-btn1").click(function(){
-					$('#new-memory').hide(400)
+					
+					if($("#mem1text").css("text-decoration")=="line-through"){
+						$("#mem1text").css("text-decoration","none");
+					}else{
+						$("#mem1text").css("text-decoration", "line-through");
+					}
 				});
 				$("#check-btn2").click(function(){
-					$('#memory-entry2').hide(400)
+					
+					if($("#mem2text").css("text-decoration")=="line-through"){
+						$("#mem2text").css("text-decoration","none");
+					}else{
+						$("#mem2text").css("text-decoration", "line-through");
+					}
 				});
 				//Memory Erase buttons
 				$('#delete-btn1').click(function(){

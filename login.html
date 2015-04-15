@@ -22,8 +22,9 @@
 	<body>
 		<div class="container">
 			<h1 class ="logo-signin">mothr.io</h1>
-			<form class="form-signin">
+			<form action="index.html" class="form-signin">
 				<h2 class="form-signin-heading">Please sign in</h2>
+				<h4 id="message" class="text-danger"></h4>
 				<label for="inputEmail" class="sr-only">Email address</label>
 				<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
 				<label for="inputPassword" class="sr-only">Password</label>
@@ -38,9 +39,22 @@
 			
 		</div>
 		
+
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+		<script type="text/javascript">
+			$(function(){
+				$('.form-signin').submit(function(){
+					if($('#inputEmail').val() != "samantha@example.com" || $('#inputPassword').val() != "baby"){
+						$("#message").text('Wrong e-mail/password combination');
+						return false;
+					}
+					return true;
+				});
+			});
+		</script>
 	</body>
 </html>

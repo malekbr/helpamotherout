@@ -95,7 +95,7 @@
 						</div>
 						<hr>
 						<div id="edit-memory1">
-							<form id="memory-input-form">
+							<form id="memory-input-form-2">
 								<div class="row memory-input-entry">
 									<div class="col-sm-4">
 										<input type="checkbox" name="reminder" value="email"> Remind me by email<br>
@@ -105,7 +105,7 @@
 									</div>
 									</div>
 									<div class="memory-input-description col-sm-8">
-										<textarea class="appointments-input-description-field" placeholder="Skype with Nana at 2pm."></textarea>
+										<textarea class="appointments-input-description-field">Skype with Nana at 2pm.</textarea>
 									</div>
 								</div>
 								<div class="row">
@@ -125,7 +125,7 @@
 							<hr>
 						</div>
 						<div id="edit-memory2">
-							<form id="memory-input-form">
+							<form id="memory-input-form-3">
 								<div class="row memory-input-entry">
 									<div class="col-sm-4">
 										<input type="checkbox" name="reminder" value="email"> Remind me by email<br>
@@ -135,7 +135,7 @@
 									</div>
 									</div>
 									<div class="memory-input-description col-sm-8">
-										<textarea class="appointments-input-description-field" placeholder="Go to Doctor Borat."></textarea>
+										<textarea class="appointments-input-description-field">Go to Doctor Borat.</textarea>
 									</div>
 								</div>
 								<div class="row">
@@ -150,8 +150,8 @@
 								<div><button id="edit-btn2" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
 								<div><button id="delete-btn2" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
 							</div>
+							<hr>
 						</div>
-						<hr>
 					</div>
 				</div>
 			</div>
@@ -176,6 +176,21 @@
 					return false;
 				});
 
+				$('#memory-input-form-2').submit(function(){
+					$('#addEntry').show(400);
+					$('#edit-memory1').hide(400);
+					$('#new-memory').show(400);
+					return false;
+				});
+
+				$('#memory-input-form-3').submit(function(){
+					$('#addEntry').show(400);
+					$('#edit-memory2').hide(400);
+					$('#memory-entry2').show(400);
+					return false;
+				});
+
+
 				//Memory Erase buttons
 				$('#delete-btn1').click(function(){
 					$('#new-memory').hide(400)
@@ -188,10 +203,12 @@
 				$('#edit-memory1').hide();
 				$('#edit-memory2').hide();
 				$('#edit-btn1').click(function(){
+					$('#addEntry').hide(400);
 					$('#new-memory').hide(400)
 					$('#edit-memory1').show(400)
 				});
 				$('#edit-btn2').click(function(){
+					$('#addEntry').hide(400);
 					$('#memory-entry2').hide()
 					$('#edit-memory2').show(400)
 				});

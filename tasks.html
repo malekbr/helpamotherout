@@ -44,81 +44,66 @@
 						<li><button id="logout" class="navbar-btn btn btn-primary btn-block">Log out</button></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
-			</div><!-- /.container-fluid -->		
+			</div><!-- /.container-fluid -->
 		</nav>
 		<div class="container" style="padding-top: 70px">
-			<div class="row">
-				<div id="timeline-sidebar" class="col-sm-2 sidebar">
-					<h4>Timeline</h4>
-					<ul class="timeline-main">
-						<li class="timeline-year unfolded"><a href="#">2014 <span class="sr-only">(current)</span></a>
-						<ul class="timeline-month-list">
-							<li class="timeline-month"><a href="#">September</a></li>
-							<li class="timeline-month selected"><a href="#">October <span class="sr-only">(current)</span></a></li>
-						</ul>
-					</li>
-					<li class="timeline-year"><a href="#">2013</a></li>
-					</ul>
-				</div>
-				<div class = "col-sm-10 ">
-					<button id="addEntry" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-plus"></span></button>
-					<div id="memory-input">
-						<form id="memory-input-form">
-							<div class="row memory-input-entry">
-								<div class="col-sm-12">
-									<textarea class="appointments-input-description-field" placeholder="Enter the task"></textarea>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-offset-10 col-sm-2"><input type="submit" class="btn btn-primary btn-block" value="Save"></div>
-							</div>
-						</form>
-					</div>
-					<hr>
-					<div id="edit-memory1">
-						<form id="memory-input-form">
-							<div class="row memory-input-entry">
-								<div class="col-sm-12">
-									<textarea class="appointments-input-description-field" placeholder="choose a gift for Aladeen from"></textarea>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-offset-10 col-sm-2"><input type="submit" class="btn btn-primary btn-block" value="Save"></div>
-							</div>
-						</form>
-					</div>
-					<div id="new-memory" style="display:none;">
-						<div class="row memory-entry">
-							<div class="col-sm-9 col-xs-6"> <p id="mem1text">choose a gift for Aladeen from</p> </div>
-							<div class="btn-group col-sm-3 col-xs-6">
-								<button id="check-btn1" type="button" class="btn   btn-default"><span class="glyphicon glyphicon-ok"></span></button>
-								<button id="edit-btn1" type="button"class="btn  btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
-								<button id="delete-btn1" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
-							</div>
+			<button id="addEntry" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-plus"></span></button>
+			<div id="memory-input">
+				<form id="memory-input-form">
+					<div class="row memory-input-entry">
+						<div class="col-sm-12">
+							<textarea class="appointments-input-description-field" placeholder="Enter the task"></textarea>
 						</div>
-						<hr>
 					</div>
-					<div id="edit-memory2">
-						<form id="memory-input-form">
-							<div class="row memory-input-entry">
-								<div class="col-sm-12">
-									<textarea class="appointments-input-description-field" placeholder="tell Mike to buy more diapers"></textarea>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-offset-10 col-sm-2"><input type="submit" class="btn btn-primary btn-block" value="Save"></div>
-							</div>
-						</form>
+					<div class="row">
+						<div class="col-sm-offset-10 col-sm-2"><input type="submit" class="btn btn-primary btn-block" value="Save"></div>
 					</div>
-					<div id="memory-entry2" class="row memory-entry">
-						<div class="col-sm-9 col-xs-6"><p id="mem2text">tell Mike to buy more diapers</p></div>
-						<div class="btn-group col-sm-3 col-xs-6">
-							<button id="check-btn2" type="button" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span></button>
-							<button id="edit-btn2" type="button"class="btn  btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
-							<button id="delete-btn2" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
+				</form>
+			</div>
+			<hr>
+			<div id="edit-memory1">
+				<form id="memory-input-form">
+					<div class="row memory-input-entry">
+						<div class="col-sm-12">
+							<textarea class="appointments-input-description-field" placeholder="choose a gift for Aladeen from"></textarea>
+						</div>
 					</div>
-					<hr>
+					<div class="row">
+						<div class="col-sm-offset-10 col-sm-2"><input type="submit" class="btn btn-primary btn-block" value="Save"></div>
+					</div>
+				</form>
+			</div>
+			<div id="new-memory" style="display:none;">
+				<div class="row memory-entry">
+					<div class="col-sm-9 col-xs-6"> <p id="mem1text">choose a gift for Aladeen from</p> </div>
+					<div class="btn-group col-sm-3 col-xs-6">
+						<button id="check-btn1" type="button" class="btn   btn-default"><span class="glyphicon glyphicon-ok"></span></button>
+						<button id="edit-btn1" type="button"class="btn  btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
+						<button id="delete-btn1" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
+					</div>
 				</div>
+				<hr>
+			</div>
+			<div id="edit-memory2">
+				<form id="memory-input-form">
+					<div class="row memory-input-entry">
+						<div class="col-sm-12">
+							<textarea class="appointments-input-description-field" placeholder="tell Mike to buy more diapers"></textarea>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-offset-10 col-sm-2"><input type="submit" class="btn btn-primary btn-block" value="Save"></div>
+					</div>
+				</form>
+			</div>
+			<div id="memory-entry2" class="row memory-entry">
+				<div class="col-sm-9 col-xs-6"><p id="mem2text">tell Mike to buy more diapers</p></div>
+				<div class="btn-group col-sm-3 col-xs-6">
+					<button id="check-btn2" type="button" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span></button>
+					<button id="edit-btn2" type="button"class="btn  btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
+					<button id="delete-btn2" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
+				</div>
+				<hr>
 			</div>
 		</div>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -164,7 +149,6 @@
 				$('#delete-btn2').click(function(){
 					$('#memory-entry2').hide(400)
 				});
-
 				//Memory Edit buttons
 				$('#edit-memory1').hide();
 				$('#edit-memory2').hide();
@@ -176,7 +160,6 @@
 					$('#memory-entry2').hide()
 					$('#edit-memory2').show(400)
 				});
-
 				$('#logout').click(function(){
 					window.location.href = "login.html";
 				});

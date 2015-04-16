@@ -81,15 +81,15 @@
 							<hr>
 						</div>
 						<div id="edit-memory1">
-							<form id="memory-input-form">
+							<form id="memory-input-form-1">
 								<div class="row memory-input-entry">
 									<div class="col-sm-4"> <div class="thumbnail"><button class="btn btn-block btn-lg btn-default"><div class="glyphicon glyphicon-camera"></div><br>Upload a file</button></div>
 									<div id="date" class="input-group date">
-										<input type="text" placeholder="March 20, 2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+										<input type="text" value="3/20/2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 									</div>
 								</div>
 								<div class="memory-input-description col-sm-8">
-									<textarea class="memory-input-description-field" placeholder="Aladdin took his first steps!"></textarea>
+									<textarea class="memory-input-description-field">Aladdin took his first steps!</textarea>
 								</div>
 							</div>
 							<div class="row">
@@ -111,15 +111,15 @@
 							<hr>
 						</div>
 						<div id="edit-memory2">
-							<form id="memory-input-form">
+							<form id="memory-input-form-2">
 								<div class="row memory-input-entry">
 									<div class="col-sm-4"> <div class="thumbnail"><button class="btn btn-block btn-lg btn-default"><div class="glyphicon glyphicon-camera"></div><br>Upload a file</button></div>
 									<div id="date" class="input-group date">
-										<input type="text" placeholder="February 6th, 2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+										<input type="text" value="02/06/2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 									</div>
 								</div>
 								<div class="memory-input-description col-sm-8">
-									<textarea class="memory-input-description-field" placeholder="It was Leo's second birthday today! He had a lot of fun and a lot of cake. He's finally starting to like sugar!"></textarea>
+									<textarea class="memory-input-description-field">It was Leo's second birthday today! He had a lot of fun and a lot of cake. He's finally starting to like sugar!</textarea>
 								</div>
 							</div>
 							<div class="row">
@@ -139,15 +139,15 @@
 						</div>
 						<hr>
 						<div id="edit-memory3">
-							<form id="memory-input-form">
+							<form id="memory-input-form-3">
 								<div class="row memory-input-entry">
 									<div class="col-sm-4"> <div class="thumbnail"><button class="btn btn-block btn-lg btn-default"><div class="glyphicon glyphicon-camera"></div><br>Upload a file</button></div>
 									<div id="date" class="input-group date">
-										<input type="text" placeholder="December 25th, 2013" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+										<input type="text" value="12/25/2013" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 									</div>
 								</div>
 								<div class="memory-input-description col-sm-8">
-									<textarea class="memory-input-description-field" placeholder="Leo's first Christmas. So cute!"></textarea>
+									<textarea class="memory-input-description-field">Leo's first Christmas. So cute!</textarea>
 								</div>
 							</div>
 							<div class="row">
@@ -175,7 +175,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
 			$(function(){
-				$('#date').datepicker({});
+				$('.date').datepicker({});
 				$('#new-memory').hide();
 				$('#memory-input').hide();
 				$('#addEntry').click(function(){
@@ -189,9 +189,30 @@
 					return false;
 				});
 
+				$('#memory-input-form-1').submit(function(){
+					$('#addEntry').show(400);
+					$('#edit-memory1').hide(400);
+					$('#new-memory').show(400);
+					return false;
+				});
+
+				$('#memory-input-form-2').submit(function(){
+					$('#addEntry').show(400);
+					$('#edit-memory2').hide(400);
+					$('#memory-entry2').show(400);
+					return false;
+				});
+
+				$('#memory-input-form-3').submit(function(){
+					$('#addEntry').show(400);
+					$('#edit-memory3').hide(400);
+					$('#memory-entry3').show(400);
+					return false;
+				});
+
 				//Memory Erase buttons
 				$('#delete-btn1').click(function(){
-					$('#memory-entry1').hide(400)
+					$('#new-memory').hide(400)
 				});
 				$('#delete-btn2').click(function(){
 					$('#memory-entry2').hide(400)
@@ -205,14 +226,17 @@
 				$('#edit-memory2').hide();
 				$('#edit-memory3').hide();
 				$('#edit-btn1').click(function(){
-					$('#memory-entry1').hide(400)
+					$('#addEntry').hide(400);
+					$('#new-memory').hide(400)
 					$('#edit-memory1').show(400)
 				});
 				$('#edit-btn2').click(function(){
+					$('#addEntry').hide(400);
 					$('#memory-entry2').hide()
 					$('#edit-memory2').show(400)
 				});
 				$('#edit-btn3').click(function(){
+					$('#addEntry').hide(400);
 					$('#memory-entry3').hide()
 					$('#edit-memory3').show(400)
 				});

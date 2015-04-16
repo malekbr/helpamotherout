@@ -46,23 +46,23 @@ body{
 	font-weight: bold;
 }
 
-.memory-entry{
+.entry{
 	padding-top: 20px;
 	font-size: 16px;
 }
 
-.memory-modif{
+.modif{
 	margin-top: 10px;
 }
 
-.memory-modif button{
+.modif button{
 	padding: 0px;
 	padding-top: 9px;
 	max-width: 40px;
 	margin-bottom: 5px;
 }
 
-.memory-input-entry{
+.input-entry{
 	padding-top: 20px;
 	font-size: 16px;
 }
@@ -72,9 +72,14 @@ body{
 	min-height: 130px;
 }
 
-.appointments-input-description-field{
+.appointment-input-description-field{
 	width: 100%;
 	min-height: 100px;
+}
+
+.task-input-description-field{
+	width: 100%;
+	min-height: 50px;
 }
 
 .exclamation {

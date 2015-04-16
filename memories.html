@@ -19,7 +19,10 @@
 		<![endif]-->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
+
 	<body>
+
+		<!-- Different Tabs (Memories/Appointments/Tasks) in the nav bar -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -46,8 +49,11 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->		
 		</nav>
+
 			<div class="container" style="padding-top: 70px">
 				<div class="row">
+
+					<!-- Timeline for navigation across history. Currently coined; links to be implemented. -->
 					<div id="timeline-sidebar" class="col-sm-2 sidebar">
 						<h4>Timeline</h4>
 							<ul class="timeline-main">
@@ -60,11 +66,17 @@
 							<li class="timeline-year"><a href="#">2013</a></li>
 						</ul>
 					</div>
+
+					<!-- The main screen -->
 					<div class = "col-sm-10">
+
+						<!-- The button for adding new entries -->
 						<button id="addEntry" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-plus"></span></button>
+
+						<!-- New memory input dialogue -->
 						<div id="memory-input">
 							<form id="memory-input-form">
-								<div class="row memory-input-entry">
+								<div class="row input-entry">
 									<div class="col-sm-4"> <div class="thumbnail"><button class="btn btn-block btn-lg btn-default"><div class="glyphicon glyphicon-camera"></div><br>Upload a file</button></div>
 									<div id="date" class="input-group date">
 										<input type="text" placeholder="Enter the memory's date" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
@@ -80,9 +92,11 @@
 							</form>
 							<hr>
 						</div>
+
+						<!-- Coined HTML for editing existing memory's dialogue -->
 						<div id="edit-memory1">
 							<form id="memory-input-form-1">
-								<div class="row memory-input-entry">
+								<div class="row input-entry">
 									<div class="col-sm-4"> <div class="thumbnail"><button class="btn btn-block btn-lg btn-default"><div class="glyphicon glyphicon-camera"></div><br>Upload a file</button></div>
 									<div id="date" class="input-group date">
 										<input type="text" value="3/20/2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
@@ -98,21 +112,25 @@
 							</form>
 							<hr>
 						</div>
+
+						<!-- Coined memory to be added when inputing a new entry -->
 						<div id="new-memory" style="display:none;">
-							<div id="memory-entry1" class="row memory-entry">
+							<div id="memory-entry1" class="row entry">
 								<div class="col-sm-4"> <div class="thumbnail"><img src="images/first_steps.jpg"></div></div>
 								<div class="col-sm-7"> <h3>March 20<sup>th</sup>, 2015</h3>
 								Aladdin took his first steps!</div>
-								<div class="col-sm-1 memory-modif">
+								<div class="col-sm-1 modif">
 									<div><button id="edit-btn1" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
 									<div><button id="delete-btn1" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
 								</div>
 							</div>
 							<hr>
 						</div>
+
+						<!-- Coined HTML for editing existing memory's dialogue -->
 						<div id="edit-memory2">
 							<form id="memory-input-form-2">
-								<div class="row memory-input-entry">
+								<div class="row input-entry">
 									<div class="col-sm-4"> <div class="thumbnail"><button class="btn btn-block btn-lg btn-default"><div class="glyphicon glyphicon-camera"></div><br>Upload a file</button></div>
 									<div id="date" class="input-group date">
 										<input type="text" value="02/06/2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
@@ -128,19 +146,24 @@
 							</form>
 							<hr>
 						</div>
-						<div id="memory-entry2" class="row memory-entry">
+
+						<!-- A given memory entry -->
+						<div id="memory-entry2" class="row entry">
 							<div class="col-sm-4"> <div class="thumbnail"><img src="images/birthday_cake.jpg"></div></div>
 							<div class="col-sm-7"> <h3>February 6<sup>th</sup>, 2015</h3>
 							It was Leo's second birthday today! He had a lot of fun and a lot of cake. He's finally starting to like sugar!</div>
-							<div class="col-sm-1 memory-modif">
+							<div class="col-sm-1 modif">
 								<div><button id="edit-btn2" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
 								<div><button id="delete-btn2" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
 							</div>
 						</div>
+
 						<hr>
+
+						<!-- Coined HTML for editing existing memory's dialogue -->
 						<div id="edit-memory3">
 							<form id="memory-input-form-3">
-								<div class="row memory-input-entry">
+								<div class="row input-entry">
 									<div class="col-sm-4"> <div class="thumbnail"><button class="btn btn-block btn-lg btn-default"><div class="glyphicon glyphicon-camera"></div><br>Upload a file</button></div>
 									<div id="date" class="input-group date">
 										<input type="text" value="12/25/2013" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
@@ -156,11 +179,13 @@
 							</form>
 							<hr>
 						</div>
-						<div id="memory-entry3" class="row memory-entry">
+
+						<!-- A given memory entry -->
+						<div id="memory-entry3" class="row entry">
 							<div class="col-sm-4"> <div class="thumbnail"><img src="images/christmas.jpg"></div></div>
 							<div class="col-sm-7"> <h3>December 25<sup>th</sup>, 2013</h3>
 							Leo's first Christmas. So cute!</div>
-							<div class="col-sm-1 memory-modif">
+							<div class="col-sm-1 modif">
 								<div><button id="edit-btn3" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
 								<div><button id="delete-btn3" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
 							</div>
@@ -169,6 +194,7 @@
 					</div>
 				</div>
 			</div>
+
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<!-- Latest compiled and minified JavaScript -->
@@ -182,6 +208,8 @@
 					$(this).hide(400);
 					$('#memory-input').show(400);
 				});
+
+				//New memory input
 				$('#memory-input-form').submit(function(){
 					$('#addEntry').show(400);
 					$('#memory-input').hide(400);
@@ -241,7 +269,7 @@
 					$('#edit-memory3').show(400)
 				});
 
-
+				//Loging out takes you to the login page
 				$('#logout').click(function(){
 					window.location.href = "login.html";
 				});

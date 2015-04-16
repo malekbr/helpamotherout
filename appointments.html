@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<title>mothr.io - Memories</title>
+		<title>mothr.io - Appointments</title>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		<!-- Optional theme -->
@@ -19,7 +19,10 @@
 		<![endif]-->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
+
 	<body>
+
+		<!-- Different Tabs (Memories/Appointments/Tasks) in the nav bar -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -35,7 +38,7 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="index.html">Memories</a></li>
+						<li><a href="memories.html">Memories</a></li>
 						<li class="active"><a href="#">Appointments <span class="sr-only">(current)</span></a></li>
 						<li><a href="tasks.html">Tasks</a></li>
 					</ul>
@@ -47,8 +50,12 @@
 					</div><!-- /.container-fluid -->
 					
 				</nav>
+
+
 				<div class="container" style="padding-top: 70px">
 					<div class="row">
+
+						<!-- Timeline for navigation across history. Currently coined; links to be implemented. -->
 						<div id="timeline-sidebar" class="col-sm-2 sidebar">
 							<h4>Timeline</h4>
 							<ul class="timeline-main">
@@ -61,11 +68,17 @@
 							<li class="timeline-year"><a href="#">2013</a></li>
 						</ul>
 					</div>
+
+					<!-- The main screen -->
 					<div class = "col-sm-10">
+
+						<!-- The button for adding new entries -->
 						<button id="addEntry" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-plus"></span></button>
-						<div id="memory-input">
-							<form id="memory-input-form">
-								<div class="row memory-input-entry">
+
+						<!-- New appointment input dialogue -->
+						<div id="appointment-input">
+							<form id="appointment-input-form">
+								<div class="row input-entry">
 									<div class="col-sm-4">
 										<input type="checkbox" name="reminder" value="email"> Remind me by email<br>
 										<input type="checkbox" style="margin-bottom:20px" name="reminder" value="text" checked> Remind me by text<br>
@@ -73,8 +86,8 @@
 										<input type="text" style="margin-bottom:0px;"placeholder="Enter the appointment's date" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 									</div>
 									</div>
-									<div class="memory-input-description col-sm-8">
-										<textarea class="appointments-input-description-field" placeholder="Enter the appointment's description"></textarea>
+									<div class="input-description col-sm-8">
+										<textarea class="appointment-input-description-field" placeholder="Enter the appointment's description"></textarea>
 									</div>
 								</div>
 								<div class="row">
@@ -82,21 +95,26 @@
 								</div>
 							</form>
 						</div>
+
 						<hr>
-						<div class="row memory-entry">
-							<div id="today" class="col-sm-2 memory-modif text-success">
+
+						<!-- Today's tasks -->
+						<div class="row entry">
+							<div id="today" class="col-sm-2 modif text-success">
 								<div><span class="glyphicon glyphicon-exclamation-sign exclamation"></span></div>
 								<div><h3>Today</h3></div>
-								<!--<div style="position:relative;width:2px;height:110px;background-color:#000000;right:0;top:0;">&nbsp;</div>-->
 							</div>
-							<div class="col-sm-10"> Play date with Jasmine! 
-								 <button class="btn btn-link"><span class="glyphicon glyphicon-remove"></span></button>
+							<div id="app-today1" class="col-sm-10"> Play date with Jasmine! 
+								 <button id="delete-appointment" class="btn btn-link"><span class="glyphicon glyphicon-remove"></span></button>
 							</div>
 						</div>
+
 						<hr>
-						<div id="edit-memory1">
-							<form id="memory-input-form-2">
-								<div class="row memory-input-entry">
+
+						<!-- Coined HTML for editing existing appointment's dialogue -->
+						<div id="edit-appointment1">
+							<form id="appointment-input-form-2">
+								<div class="row input-entry">
 									<div class="col-sm-4">
 										<input type="checkbox" name="reminder" value="email"> Remind me by email<br>
 										<input type="checkbox" style="margin-bottom:20px" name="reminder" value="text" checked> Remind me by text<br>
@@ -104,8 +122,8 @@
 										<input type="text" style="margin-bottom:0px;"placeholder="May 22th, 2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 									</div>
 									</div>
-									<div class="memory-input-description col-sm-8">
-										<textarea class="appointments-input-description-field">Skype with Nana at 2pm.</textarea>
+									<div class="input-description col-sm-8">
+										<textarea class="appointment-input-description-field">Skype with Nana at 2pm.</textarea>
 									</div>
 								</div>
 								<div class="row">
@@ -113,20 +131,24 @@
 								</div>
 							</form>
 						</div>
-						<div id="new-memory" style="display:none;">
-							<div class="row memory-entry">
+
+						<!-- Coined appintment to be added when inputing a new entry -->
+						<div id="new-appointment" style="display:none;">
+							<div class="row entry">
 								<div class="col-sm-11"> <h3>May 22<sup>th</sup>, 2015</h3>
 								Skype with Nana at 2 pm.</div>
-								<div class="col-sm-1 memory-modif">
+								<div class="col-sm-1 modif">
 									<div><button id="edit-btn1" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
 									<div><button id="delete-btn1" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
 								</div>
 							</div>
 							<hr>
 						</div>
-						<div id="edit-memory2">
-							<form id="memory-input-form-3">
-								<div class="row memory-input-entry">
+
+						<!-- Coined HTML for editing existing appointment's dialogue -->
+						<div id="edit-appointment2">
+							<form id="appointment-input-form-3">
+								<div class="row input-entry">
 									<div class="col-sm-4">
 										<input type="checkbox" name="reminder" value="email"> Remind me by email<br>
 										<input type="checkbox" style="margin-bottom:20px" name="reminder" value="text" checked> Remind me by text<br>
@@ -134,8 +156,8 @@
 										<input type="text" style="margin-bottom:0px;"placeholder="Deceember 25th, 2013" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 									</div>
 									</div>
-									<div class="memory-input-description col-sm-8">
-										<textarea class="appointments-input-description-field">Go to Doctor Borat.</textarea>
+									<div class="input-description col-sm-8">
+										<textarea class="appointment-input-description-field">Go to Doctor Borat.</textarea>
 									</div>
 								</div>
 								<div class="row">
@@ -143,19 +165,23 @@
 								</div>
 							</form>
 						</div>
-						<div id="memory-entry2" class="row memory-entry">
+
+						<!-- A given appointment entry -->
+						<div id="appointment-entry2" class="row entry">
 							<div class="col-sm-11"> <h3>December 25<sup>th</sup>, 2013</h3>
 							Go to Doctor Borat.</div>
-							<div class="col-sm-1 memory-modif">
+							<div class="col-sm-1 modif">
 								<div><button id="edit-btn2" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
 								<div><button id="delete-btn2" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
 							</div>
 							<hr>
 						</div>
+
 					</div>
 				</div>
 			</div>
 		</div>
+
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<!-- Latest compiled and minified JavaScript -->
@@ -163,54 +189,59 @@
 		<script type="text/javascript">
 			$(function(){
 				$('#date').datepicker({});
-				$('#new-memory').hide();
-				$('#memory-input').hide();
+				$('#new-appointment').hide();
+				$('#appointment-input').hide();
 				$('#addEntry').click(function(){
 					$(this).hide(400);
-					$('#memory-input').show(400);
+					$('#appointment-input').show(400);
 				});
-				$('#memory-input-form').submit(function(){
+
+				//New appointment input
+				$('#appointment-input-form').submit(function(){
 					$('#addEntry').show(400);
-					$('#memory-input').hide(400);
-					$('#new-memory').show(400);
+					$('#appointment-input').hide(400);
+					$('#new-appointment').show(400);
 					return false;
 				});
 
-				$('#memory-input-form-2').submit(function(){
+				$('#appointment-input-form-2').submit(function(){
 					$('#addEntry').show(400);
-					$('#edit-memory1').hide(400);
-					$('#new-memory').show(400);
+					$('#edit-appointment1').hide(400);
+					$('#new-appointment').show(400);
 					return false;
 				});
 
-				$('#memory-input-form-3').submit(function(){
+				$('#appointment-input-form-3').submit(function(){
 					$('#addEntry').show(400);
-					$('#edit-memory2').hide(400);
-					$('#memory-entry2').show(400);
+					$('#edit-appointment2').hide(400);
+					$('#appointment-entry2').show(400);
 					return false;
 				});
 
 
-				//Memory Erase buttons
+				//Appointment Erase buttons
 				$('#delete-btn1').click(function(){
-					$('#new-memory').hide(400)
+					$('#new-appointment').hide(400)
 				});
 				$('#delete-btn2').click(function(){
-					$('#memory-entry2').hide(400)
+					$('#appointment-entry2').hide(400)
+				});
+				$('#delete-appointment').click(function(){
+					$('#app-today1').hide(400)
 				});
 
-				//Memory Edit buttons
-				$('#edit-memory1').hide();
-				$('#edit-memory2').hide();
+				//Appointment Edit buttons
+				$('#edit-appointment1').hide();
+				$('#edit-appointment2').hide();
 				$('#edit-btn1').click(function(){
 					$('#addEntry').hide(400);
-					$('#new-memory').hide(400)
-					$('#edit-memory1').show(400)
+					$('#new-appointment').hide(400)
+					$('#edit-appointment1').show(400)
 				});
 				$('#edit-btn2').click(function(){
 					$('#addEntry').hide(400);
-					$('#memory-entry2').hide()
-					$('#edit-memory2').show(400)
+					$('#appointment-entry2').hide()
+					$('#edit-appointment2').show(400)
 				});
 
 				$('#logout').click(function(){

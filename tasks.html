@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<title>mothr.io - Memories</title>
+		<title>mothr.io - Tasks</title>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		<!-- Optional theme -->
@@ -19,7 +19,10 @@
 		<![endif]-->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
+
 	<body>
+
+		<!-- Different Tabs (Memories/Appointments/Tasks) in the nav bar -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -35,7 +38,7 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="index.html">Memories</a></li>
+						<li><a href="memories.html">Memories</a></li>
 						<li><a href="appointments.html">Appointments</a></li>
 						<li class="active"><a href="#">Tasks <span class="sr-only">(current)</span></a></li>
 					</ul>
@@ -46,13 +49,19 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
+
+		<!-- The main screen -->
 		<div class="container" style="padding-top: 70px">
+
+			<!-- The button for adding new entries -->
 			<button id="addEntry" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-plus"></span></button>
-			<div id="memory-input">
-				<form id="memory-input-form">
-					<div class="row memory-input-entry">
+
+			<!-- New task input dialogue -->
+			<div id="task-input">
+				<form id="task-input-form">
+					<div class="row input-entry">
 						<div class="col-sm-12">
-							<textarea class="appointments-input-description-field" placeholder="Enter the task"></textarea>
+							<textarea class="task-input-description-field" placeholder="Enter the task"></textarea>
 						</div>
 					</div>
 					<div class="row">
@@ -60,12 +69,15 @@
 					</div>
 				</form>
 			</div>
+
 			<hr>
-			<div id="edit-memory1">
-				<form id="memory-input-form">
-					<div class="row memory-input-entry">
+
+			<!-- Coined HTML for editing existing task's dialogue -->
+			<div id="edit-task1">
+				<form id="task-input-form">
+					<div class="row input-entry">
 						<div class="col-sm-12">
-							<textarea class="appointments-input-description-field" placeholder="choose a gift for Aladeen from"></textarea>
+							<textarea class="task-input-description-field" placeholder="choose a gift for Aladeen from"></textarea>
 						</div>
 					</div>
 					<div class="row">
@@ -73,8 +85,10 @@
 					</div>
 				</form>
 			</div>
-			<div id="new-memory" style="display:none;">
-				<div class="row memory-entry">
+
+			<!-- Coined task to be added when inputing a new entry -->
+			<div id="new-task" style="display:none;">
+				<div class="row entry">
 					<div class="col-sm-9 col-xs-6"> <p id="mem1text">choose a gift for Aladeen from</p> </div>
 					<div class="btn-group col-sm-3 col-xs-6">
 						<button id="check-btn1" type="button" class="btn   btn-default"><span class="glyphicon glyphicon-ok"></span></button>
@@ -84,11 +98,13 @@
 				</div>
 				<hr>
 			</div>
-			<div id="edit-memory2">
-				<form id="memory-input-form">
-					<div class="row memory-input-entry">
+
+			<!-- Coined HTML for editing existing task's dialogue -->
+			<div id="edit-task2">
+				<form id="task-input-form">
+					<div class="row input-entry">
 						<div class="col-sm-12">
-							<textarea class="appointments-input-description-field" placeholder="tell Mike to buy more diapers"></textarea>
+							<textarea class="task-input-description-field" placeholder="tell Mike to buy more diapers"></textarea>
 						</div>
 					</div>
 					<div class="row">
@@ -96,7 +112,9 @@
 					</div>
 				</form>
 			</div>
-			<div id="memory-entry2" class="row memory-entry">
+
+			<!-- A given task entry -->
+			<div id="task-entry2" class="row entry">
 				<div class="col-sm-9 col-xs-6"><p id="mem2text">tell Mike to buy more diapers</p></div>
 				<div class="btn-group col-sm-3 col-xs-6">
 					<button id="check-btn2" type="button" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span></button>
@@ -105,6 +123,7 @@
 				</div>
 				<hr>
 			</div>
+
 		</div>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -113,18 +132,21 @@
 		<script type="text/javascript">
 			$(function(){
 				$('#date').datepicker({});
-				$('#new-memory').hide();
-				$('#memory-input').hide();
+				$('#new-task').hide();
+				$('#task-input').hide();
 				$('#addEntry').click(function(){
 					$(this).hide(400);
-					$('#memory-input').show(400);
+					$('#task-input').show(400);
 				});
-				$('#memory-input-form').submit(function(){
+
+				//New task input
+				$('#task-input-form').submit(function(){
 					$('#addEntry').show(400);
-					$('#memory-input').hide(400);
-					$('#new-memory').show(400);
+					$('#task-input').hide(400);
+					$('#new-task').show(400);
 					return false;
 				});
+
 				//Check buttons
 				$("#check-btn1").click(function(){
 					
@@ -142,23 +164,25 @@
 						$("#mem2text").css("text-decoration", "line-through");
 					}
 				});
-				//Memory Erase buttons
+
+				//Task Erase buttons
 				$('#delete-btn1').click(function(){
-					$('#new-memory').hide(400)
+					$('#new-task').hide(400)
 				});
 				$('#delete-btn2').click(function(){
-					$('#memory-entry2').hide(400)
+					$('#task-entry2').hide(400)
 				});
-				//Memory Edit buttons
-				$('#edit-memory1').hide();
-				$('#edit-memory2').hide();
+
+				//Task Edit buttons
+				$('#edit-task1').hide();
+				$('#edit-task2').hide();
 				$('#edit-btn1').click(function(){
-					$('#new-memory').hide(400)
-					$('#edit-memory1').show(400)
+					$('#new-task').hide(400)
+					$('#edit-task1').show(400)
 				});
 				$('#edit-btn2').click(function(){
-					$('#memory-entry2').hide()
-					$('#edit-memory2').show(400)
+					$('#task-entry2').hide()
+					$('#edit-task2').show(400)
 				});
 				$('#logout').click(function(){
 					window.location.href = "login.html";

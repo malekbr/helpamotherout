@@ -68,129 +68,50 @@
 					</div>
 
 					<!-- The main screen -->
-					<div class = "col-sm-10">
+					<div id="entries" class = "col-sm-10">
 
 						<!-- The button for adding new entries -->
 						<button id="addEntry" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-plus"></span></button>
 
 						<!-- New memory input dialogue -->
-						<div id="memory-input">
-							<form id="memory-input-form">
+						<div id="new-entry">
+							<form id="new-entry-form">
 								<div class="row input-entry">
 									<div class="col-sm-4"> <div class="thumbnail"><button class="btn btn-block btn-lg btn-default"><div class="glyphicon glyphicon-camera"></div><br>Upload a file</button></div>
 									<div id="date" class="input-group date">
-										<input type="text" placeholder="Enter the memory's date" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+										<input id="new-entry-date" type="text" placeholder="Enter the memory's date" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 									</div>
 								</div>
-								<div class="memory-input-description col-sm-8">
-									<textarea class="memory-input-description-field" placeholder="Enter the memory's description"></textarea>
+								<div class="entry-input-description col-sm-8">
+									<textarea id="new-entry-text" class="entry-input-description-field" placeholder="Enter the memory's description"></textarea>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-offset-10 col-sm-2"><input type="submit" class="btn btn-primary btn-block" value="Save"></div>
 							</div>
 							</form>
-							<hr>
+							
 						</div>
+						<br>
+						<div id="invalid-date" class="alert alert-danger" role="alert">
 
-						<!-- Coined HTML for editing existing memory's dialogue -->
-						<div id="edit-memory1">
-							<form id="memory-input-form-1">
-								<div class="row input-entry">
-									<div class="col-sm-4"> <div class="thumbnail"><button class="btn btn-block btn-lg btn-default"><div class="glyphicon glyphicon-camera"></div><br>Upload a file</button></div>
-									<div id="date" class="input-group date">
-										<input type="text" value="3/20/2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-									</div>
-								</div>
-								<div class="memory-input-description col-sm-8">
-									<textarea class="memory-input-description-field">Aladdin took his first steps!</textarea>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-offset-10 col-sm-2"><input type="submit" class="btn btn-primary btn-block" value="Save"></div>
-							</div>
-							</form>
-							<hr>
+ 							<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  							<span class="sr-only">Error:</span>
+  							Enter a valid date
 						</div>
-
-						<!-- Coined memory to be added when inputing a new entry -->
-						<div id="new-memory" style="display:none;">
-							<div id="memory-entry1" class="row entry">
-								<div class="col-sm-4"> <div class="thumbnail"><img src="images/first_steps.jpg"></div></div>
-								<div class="col-sm-7"> <h3>March 20<sup>th</sup>, 2015</h3>
-								Aladdin took his first steps!</div>
-								<div class="col-sm-1 modif">
-									<div><button id="edit-btn1" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
-									<div><button id="delete-btn1" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
-								</div>
-							</div>
-							<hr>
-						</div>
-
-						<!-- Coined HTML for editing existing memory's dialogue -->
-						<div id="edit-memory2">
-							<form id="memory-input-form-2">
-								<div class="row input-entry">
-									<div class="col-sm-4"> <div class="thumbnail"><button class="btn btn-block btn-lg btn-default"><div class="glyphicon glyphicon-camera"></div><br>Upload a file</button></div>
-									<div id="date" class="input-group date">
-										<input type="text" value="02/06/2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-									</div>
-								</div>
-								<div class="memory-input-description col-sm-8">
-									<textarea class="memory-input-description-field">It was Leo's second birthday today! He had a lot of fun and a lot of cake. He's finally starting to like sugar!</textarea>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-offset-10 col-sm-2"><input type="submit" class="btn btn-primary btn-block" value="Save"></div>
-							</div>
-							</form>
-							<hr>
-						</div>
-
-						<!-- A given memory entry -->
-						<div id="memory-entry2" class="row entry">
+						<!-- A memory template -->
+						<div id="entry-block" class="row entry">
 							<div class="col-sm-4"> <div class="thumbnail"><img src="images/birthday_cake.jpg"></div></div>
-							<div class="col-sm-7"> <h3>February 6<sup>th</sup>, 2015</h3>
-							It was Leo's second birthday today! He had a lot of fun and a lot of cake. He's finally starting to like sugar!</div>
+							<div class="col-sm-7">
+								<h3> <span id="month"> January </span> <span id="day">1</span><sup> <span id="subscript">st</span></sup> , <span id="year"> 2001 </span></h3>
+								<span id="entry-text"> entry text </span>
+							</div>
 							<div class="col-sm-1 modif">
-								<div><button id="edit-btn2" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
-								<div><button id="delete-btn2" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
+								<div><button id="edit-btn" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
+								<div><button id="delete-btn" class="btn btn-block btn-lg btn-default delete-btn"><span class="glyphicon glyphicon-remove"></span></button></div>
 							</div>
 						</div>
 
-						<hr>
-
-						<!-- Coined HTML for editing existing memory's dialogue -->
-						<div id="edit-memory3">
-							<form id="memory-input-form-3">
-								<div class="row input-entry">
-									<div class="col-sm-4"> <div class="thumbnail"><button class="btn btn-block btn-lg btn-default"><div class="glyphicon glyphicon-camera"></div><br>Upload a file</button></div>
-									<div id="date" class="input-group date">
-										<input type="text" value="12/25/2013" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-									</div>
-								</div>
-								<div class="memory-input-description col-sm-8">
-									<textarea class="memory-input-description-field">Leo's first Christmas. So cute!</textarea>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-offset-10 col-sm-2"><input type="submit" class="btn btn-primary btn-block" value="Save"></div>
-							</div>
-							</form>
-							<hr>
-						</div>
-
-						<!-- A given memory entry -->
-						<div id="memory-entry3" class="row entry">
-							<div class="col-sm-4"> <div class="thumbnail"><img src="images/christmas.jpg"></div></div>
-							<div class="col-sm-7"> <h3>December 25<sup>th</sup>, 2013</h3>
-							Leo's first Christmas. So cute!</div>
-							<div class="col-sm-1 modif">
-								<div><button id="edit-btn3" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
-								<div><button id="delete-btn3" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
-							</div>
-						</div>
-						<hr>
 					</div>
 				</div>
 			</div>
@@ -201,73 +122,102 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
 			$(function(){
+				var months={}
+				months["01"] = "January";
+				months["02"] = "February";
+				months["03"] = "March";
+				months["04"] = "April";
+				months["05"] = "May";
+				months["06"] = "June";
+				months["07"] = "July";
+				months["08"] = "August";
+				months["09"] = "September";
+				months["10"] = "October";
+				months["11"] = "November";
+				months["12"] = "December";
+
 				$('.date').datepicker({});
-				$('#new-memory').hide();
-				$('#memory-input').hide();
+				$('#new-entry').hide();
+				$('#entry-block').hide();
+				$('#invalid-date').hide();
+
 				$('#addEntry').click(function(){
 					$(this).hide(400);
-					$('#memory-input').show(400);
+					$('#new-entry').show(400);
 				});
 
 				//New memory input
-				$('#memory-input-form').submit(function(){
+				$('#new-entry-form').submit(function(){
+					console.log(months.February);
+					var hr = $('<hr />');
+					var x =$("#entry-block").clone(true,true);		
+					hr.appendTo("#entries");
+					x.appendTo("#entries");
+					x.show(400);
+					
+
+					xText = x.find("#entry-text")
+					xText.html(($(this).find("#new-entry-text")).val());
+
+					date = ($(this).find("#new-entry-date")).val();
+					dateInFormat = new Date(date);
+					if(dateInFormat == "Invalid Date"){
+						x.remove();
+						hr.remove();
+						$('#invalid-date').show();
+
+						return false;
+					}
+					month = date.substring(0,2);
+					day = date.substring(3,5);
+					year = date.substring(6,10);
+					subscript = "th"
+					if (day=="01" || day=="21" || day=="31"){
+						subscript = "st"
+					}
+					else if( day=="02" || day == "22"){
+						subscript = "2nd"
+					}
+					else if( day=="03" || day =="23"){
+						subscript= "rd"
+					}
+
+
+					xMonth = x.find("#month");
+					xMonth.html(months[month]);
+					xDay = x.find("#day");
+					xDay.html(day);
+					xYear = x.find("#year");
+					xYear.html(year);
+					xSubscript = x.find("#subscript");
+					xSubscript.html(subscript)
+					
+					$('#new-entry').hide(400);
 					$('#addEntry').show(400);
-					$('#memory-input').hide(400);
-					$('#new-memory').show(400);
+					$('#invalid-date').hide();
 					return false;
 				});
 
-				$('#memory-input-form-1').submit(function(){
-					$('#addEntry').show(400);
-					$('#edit-memory1').hide(400);
-					$('#new-memory').show(400);
-					return false;
-				});
-
-				$('#memory-input-form-2').submit(function(){
-					$('#addEntry').show(400);
-					$('#edit-memory2').hide(400);
-					$('#memory-entry2').show(400);
-					return false;
-				});
-
-				$('#memory-input-form-3').submit(function(){
-					$('#addEntry').show(400);
-					$('#edit-memory3').hide(400);
-					$('#memory-entry3').show(400);
-					return false;
-				});
 
 				//Memory Erase buttons
-				$('#delete-btn1').click(function(){
-					$('#new-memory').hide(400)
-				});
-				$('#delete-btn2').click(function(){
-					$('#memory-entry2').hide(400)
-				});
-				$('#delete-btn3').click(function(){
-					$('#memory-entry3').hide(400)
+				$('.delete-btn').click(function(){
+					console.log("7amada");
+					$(this.parentElement.parentElement.parentElement).hide(function(){
+						console.log(this);
+						$(this).remove();
+					});
+						
 				});
 
 				//Memory Edit buttons
-				$('#edit-memory1').hide();
-				$('#edit-memory2').hide();
-				$('#edit-memory3').hide();
-				$('#edit-btn1').click(function(){
+				$('#edit-entry').hide();
+
+				$('#edit-btn').click(function(){
 					$('#addEntry').hide(400);
-					$('#new-memory').hide(400)
-					$('#edit-memory1').show(400)
+					$('#new-entry').hide(400)
+					$('#edit-entry1').show(400)
 				});
-				$('#edit-btn2').click(function(){
-					$('#addEntry').hide(400);
-					$('#memory-entry2').hide()
-					$('#edit-memory2').show(400)
-				});
-				$('#edit-btn3').click(function(){
-					$('#addEntry').hide(400);
-					$('#memory-entry3').hide()
-					$('#edit-memory3').show(400)
-				});
+				
 
 				//Loging out takes you to the login page
 				$('#logout').click(function(){

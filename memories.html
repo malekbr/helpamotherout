@@ -78,6 +78,7 @@
 							<form id="new-entry-form">
 								<div class="row input-entry">
 									<div class="col-sm-4"> <div class="thumbnail"><button class="btn btn-block btn-lg btn-default"><div class="glyphicon glyphicon-camera"></div><br>Upload a file</button></div>
+
 									<div id="date" class="input-group date">
 										<input id="new-entry-date" type="text" placeholder="Enter the memory's date" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 									</div>
@@ -120,111 +121,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-		<script type="text/javascript">
-			$(function(){
-				var months={}
-				months["01"] = "January";
-				months["02"] = "February";
-				months["03"] = "March";
-				months["04"] = "April";
-				months["05"] = "May";
-				months["06"] = "June";
-				months["07"] = "July";
-				months["08"] = "August";
-				months["09"] = "September";
-				months["10"] = "October";
-				months["11"] = "November";
-				months["12"] = "December";
-
-				$('.date').datepicker({});
-				$('#new-entry').hide();
-				$('#entry-block').hide();
-				$('#invalid-date').hide();
-
-				$('#addEntry').click(function(){
-					$(this).hide(400);
-					$('#new-entry').show(400);
-				});
-
-				//New memory input
-				$('#new-entry-form').submit(function(){
-					console.log(months.February);
-					var hr = $('<hr />');
-					var x =$("#entry-block").clone(true,true);		
-					hr.appendTo("#entries");
-					x.appendTo("#entries");
-					x.show(400);
-					
-
-					xText = x.find("#entry-text")
-					xText.html(($(this).find("#new-entry-text")).val());
-
-					date = ($(this).find("#new-entry-date")).val();
-					dateInFormat = new Date(date);
-					if(dateInFormat == "Invalid Date"){
-						x.remove();
-						hr.remove();
-						$('#invalid-date').show();
-
-						return false;
-					}
-					month = date.substring(0,2);
-					day = date.substring(3,5);
-					year = date.substring(6,10);
-					subscript = "th"
-					if (day=="01" || day=="21" || day=="31"){
-						subscript = "st"
-					}
-					else if( day=="02" || day == "22"){
-						subscript = "2nd"
-					}
-					else if( day=="03" || day =="23"){
-						subscript= "rd"
-					}
-
-
-					xMonth = x.find("#month");
-					xMonth.html(months[month]);
-					xDay = x.find("#day");
-					xDay.html(day);
-					xYear = x.find("#year");
-					xYear.html(year);
-					xSubscript = x.find("#subscript");
-					xSubscript.html(subscript)
-					
-					$('#new-entry').hide(400);
-					$('#addEntry').show(400);
-					$('#invalid-date').hide();
-					return false;
-				});
-
-
-				//Memory Erase buttons
-				$('.delete-btn').click(function(){
-					console.log("7amada");
-					$(this.parentElement.parentElement.parentElement).hide(function(){
-						console.log(this);
-						$(this).remove();
-					});
-						
-				});
-
-				//Memory Edit buttons
-				$('#edit-entry').hide();
-
-				$('#edit-btn').click(function(){
-					$('#addEntry').hide(400);
-					$('#new-entry').hide(400)
-					$('#edit-entry1').show(400)
-				});
-				
-
-				//Loging out takes you to the login page
-				$('#logout').click(function(){
-					window.location.href = "login.html";
-				});
-			});
-		</script>
+		<script src="js/memoriesScript.js"> </script>
 		<script src="js/bootstrap-datepicker.min.js"></script>
 	</body>
 </html>

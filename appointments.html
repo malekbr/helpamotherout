@@ -70,30 +70,38 @@
 					</div>
 
 					<!-- The main screen -->
-					<div class = "col-sm-10">
+					<div id="entries" class = "col-sm-10">
 
 						<!-- The button for adding new entries -->
 						<button id="addEntry" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-plus"></span></button>
 
 						<!-- New appointment input dialogue -->
-						<div id="appointment-input">
-							<form id="appointment-input-form">
+						<div id="new-entry">
+							<form id="new-entry-form">
 								<div class="row input-entry">
 									<div class="col-sm-4">
-										<input type="checkbox" name="reminder" value="email"> Remind me by email<br>
-										<input type="checkbox" style="margin-bottom:20px" name="reminder" value="text" checked> Remind me by text<br>
+										<input id="new-entry-email" type="checkbox" name="reminder" value="email"> Remind me by email<br>
+										<input id="new-entry-text" type="checkbox" style="margin-bottom:20px" name="reminder" value="text" checked> Remind me by text<br>
 										<div id="date" class="input-group date">
-										<input type="text" style="margin-bottom:0px;"placeholder="Enter the appointment's date" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+											<input id="new-entry-date" type="text" style="margin-bottom:0px;"placeholder="Enter the appointment's date" value="05/04/2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+										</div>
 									</div>
-									</div>
-									<div class="input-description col-sm-8">
-										<textarea class="appointment-input-description-field" placeholder="Enter the appointment's description"></textarea>
+									<div class="entry-input-description col-sm-8">
+										<textarea id="new-entry-text" class="entry-input-description-field" placeholder="Enter the appointment's description"></textarea>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-sm-offset-10 col-sm-2"><input type="submit" class="btn btn-primary btn-block" value="Save"></div>
 								</div>
 							</form>
+						</div>
+
+						<br>
+						<div id="invalid-date" class="alert alert-danger" role="alert">
+
+ 							<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  							<span class="sr-only">Error:</span>
+  							Enter a valid date
 						</div>
 
 						<hr>
@@ -109,70 +117,13 @@
 							</div>
 						</div>
 
-						<hr>
-
-						<!-- Coined HTML for editing existing appointment's dialogue -->
-						<div id="edit-appointment1">
-							<form id="appointment-input-form-2">
-								<div class="row input-entry">
-									<div class="col-sm-4">
-										<input type="checkbox" name="reminder" value="email"> Remind me by email<br>
-										<input type="checkbox" style="margin-bottom:20px" name="reminder" value="text" checked> Remind me by text<br>
-										<div id="date" class="input-group date">
-										<input type="text" style="margin-bottom:0px;"placeholder="May 22th, 2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-									</div>
-									</div>
-									<div class="input-description col-sm-8">
-										<textarea class="appointment-input-description-field">Skype with Nana at 2pm.</textarea>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-offset-10 col-sm-2"><input type="submit" class="btn btn-primary btn-block" value="Save"></div>
-								</div>
-							</form>
-						</div>
-
-						<!-- Coined appintment to be added when inputing a new entry -->
-						<div id="new-appointment" style="display:none;">
-							<div class="row entry">
-								<div class="col-sm-11"> <h3>May 22<sup>th</sup>, 2015</h3>
-								Skype with Nana at 2 pm.</div>
-								<div class="col-sm-1 modif">
-									<div><button id="edit-btn1" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
-									<div><button id="delete-btn1" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
-								</div>
-							</div>
-							<hr>
-						</div>
-
-						<!-- Coined HTML for editing existing appointment's dialogue -->
-						<div id="edit-appointment2">
-							<form id="appointment-input-form-3">
-								<div class="row input-entry">
-									<div class="col-sm-4">
-										<input type="checkbox" name="reminder" value="email"> Remind me by email<br>
-										<input type="checkbox" style="margin-bottom:20px" name="reminder" value="text" checked> Remind me by text<br>
-										<div id="date" class="input-group date">
-										<input type="text" style="margin-bottom:0px;"placeholder="Deceember 25th, 2013" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-									</div>
-									</div>
-									<div class="input-description col-sm-8">
-										<textarea class="appointment-input-description-field">Go to Doctor Borat.</textarea>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-offset-10 col-sm-2"><input type="submit" class="btn btn-primary btn-block" value="Save"></div>
-								</div>
-							</form>
-						</div>
-
-						<!-- A given appointment entry -->
-						<div id="appointment-entry2" class="row entry">
-							<div class="col-sm-11"> <h3>December 25<sup>th</sup>, 2013</h3>
-							Go to Doctor Borat.</div>
+						<!-- An appointment template-->
+						<div id="entry-block" class="row entry">
+							<div class="col-sm-11"> <h3><span id="month"> January </span> <span id="day">1</span><sup><span id="subscript">st</span></sup>, <span id="year"> 2013 </span></h3>
+							<span id="entry-text"> entry text </span></div>
 							<div class="col-sm-1 modif">
-								<div><button id="edit-btn2" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
-								<div><button id="delete-btn2" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
+								<div><button id="edit-btn" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
+								<div><button id="delete-btn" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
 							</div>
 							<hr>
 						</div>
@@ -186,69 +137,8 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-		<script type="text/javascript">
-			$(function(){
-				$('#date').datepicker({});
-				$('#new-appointment').hide();
-				$('#appointment-input').hide();
-				$('#addEntry').click(function(){
-					$(this).hide(400);
-					$('#appointment-input').show(400);
-				});
+		<script src="js/appointmentsScript.js"> </script>
 
-				//New appointment input
-				$('#appointment-input-form').submit(function(){
-					$('#addEntry').show(400);
-					$('#appointment-input').hide(400);
-					$('#new-appointment').show(400);
-					return false;
-				});
-
-				$('#appointment-input-form-2').submit(function(){
-					$('#addEntry').show(400);
-					$('#edit-appointment1').hide(400);
-					$('#new-appointment').show(400);
-					return false;
-				});
-
-				$('#appointment-input-form-3').submit(function(){
-					$('#addEntry').show(400);
-					$('#edit-appointment2').hide(400);
-					$('#appointment-entry2').show(400);
-					return false;
-				});
-
-
-				//Appointment Erase buttons
-				$('#delete-btn1').click(function(){
-					$('#new-appointment').hide(400)
-				});
-				$('#delete-btn2').click(function(){
-					$('#appointment-entry2').hide(400)
-				});
-				$('#delete-appointment').click(function(){
-					$('#app-today1').hide(400)
-				});
-
-				//Appointment Edit buttons
-				$('#edit-appointment1').hide();
-				$('#edit-appointment2').hide();
-				$('#edit-btn1').click(function(){
-					$('#addEntry').hide(400);
-					$('#new-appointment').hide(400)
-					$('#edit-appointment1').show(400)
-				});
-				$('#edit-btn2').click(function(){
-					$('#addEntry').hide(400);
-					$('#appointment-entry2').hide()
-					$('#edit-appointment2').show(400)
-				});
-
-				$('#logout').click(function(){
-					window.location.href = "login.html";
-				});
-			});
-		</script>
 		<script src="js/bootstrap-datepicker.min.js"></script>
 	</body>
 </html>

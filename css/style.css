@@ -90,3 +90,16 @@ body{
 	text-align: center;
 	border-right: 2px solid #3c763d;
 }
+
+.text-holder{
+	border-radius: 10px;
+    background: #E9EAF0;
+    padding: 5px;
+    height: 155px;
+}
+#entry-text{
+	margin-left: 5px;
+	height:150px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}

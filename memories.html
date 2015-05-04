@@ -77,7 +77,7 @@
 						<div id="new-entry">
 							<form id="new-entry-form">
 								<div class="row input-entry">
-									<div class="col-sm-4"> <div class="thumbnail"><button class="btn btn-block btn-lg btn-default"><div class="glyphicon glyphicon-camera"></div><br>Upload a file</button></div>
+									<div class="col-sm-4"> <label style="width:100%;"><div class="thumbnail"><div class="btn btn-block btn-lg btn-default"><div class="glyphicon glyphicon-camera"></div><br><span class="uploadStatus">Upload a file</span></div></div><input type="file" class="imageFile sr-only"></label>
 
 									<div id="date" class="input-group date">
 										<input id="new-entry-date" type="text" placeholder="Enter the memory's date" value="05/04/2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
@@ -101,7 +101,7 @@
   							Enter a valid date
 						</div>
 						<!-- A memory template -->
-						<div id="entry-block" class="row entry">
+						<div data-date="01/01/2001" id="entry-block" class="row entry">
 							<div class="col-sm-4"> <div class="thumbnail"><img src="images/birthday_cake.jpg"></div></div>
 							<div class="col-sm-7">
 								<h3> <span id="month"> January </span> <span id="day">1</span><sup> <span id="subscript">st</span></sup> , <span id="year"> 2001 </span></h3>

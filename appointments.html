@@ -79,14 +79,16 @@
 						<div id="new-entry">
 							<form id="new-entry-form">
 								<div class="row input-entry">
-									<div class="col-sm-4">
-										<input id="new-entry-email" type="checkbox" name="reminder" value="email"> Remind me by email<br>
-										<input id="new-entry-text" type="checkbox" style="margin-bottom:20px" name="reminder" value="text" checked> Remind me by text<br>
-										<div id="date" class="input-group date">
-											<input id="new-entry-date" type="text" style="margin-bottom:0px;"placeholder="Enter the appointment's date" value="05/04/2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+									<div style="margin-top: 20px" class="col-sm-3">
+										<input id="new-entry-email"  type="checkbox">
+										<a id="email-popover" class="btn" href="#" data-content="remind me by e-mail" rel="popover" data-placement="bottom"  data-trigger="hover"><img style="margin-left: -5px" src="images/envelope-glyph.png"></a>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+										<input id="new-entry-sms" type="checkbox"  >&#160;
+										<a id="sms-popover" class="btn" href="#" data-content="remind me by sms" rel="popover" data-placement="bottom"  data-trigger="hover"><img style="margin-left: -5px" src="images/sms-glyph.png"></a><br>
+										<div id="date" class="input-group date" style="margin-top: 20px">
+											<input id="new-entry-date" type="text" placeholder="Enter the appointment's date" value="05/04/2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 										</div>
 									</div>
-									<div class="entry-input-description col-sm-8">
+									<div class="entry-input-description col-sm-9">
 										<textarea id="new-entry-text" class="entry-input-description-field" placeholder="Enter the appointment's description"></textarea>
 									</div>
 								</div>
@@ -119,8 +121,11 @@
 
 						<!-- An appointment template-->
 						<div id="entry-block" class="row entry">
-							<div class="col-sm-11"> <h3><span id="month"> January </span> <span id="day">1</span><sup><span id="subscript">st</span></sup>, <span id="year"> 2013 </span></h3>
+							<div class="col-sm-11"> <h3><span id="month"> January </span> <span id="day">1</span><sup><span id="subscript">st</span></sup>, <span id="year"> 2013 </span><img id="envelope-gylph" style="margin-left: 10px"  src="images/envelope-glyph.png"> <img id="sms-gylph" style="margin-left: 10px" src="images/sms-glyph.png"></h3>
+							<input id="remind-by-email" style="display:none"  type="checkbox">
+							<input id="remind-by-sms" style="display:none"  type="checkbox">
 							<span id="entry-text"> entry text </span></div>
+
 							<div class="col-sm-1 modif">
 								<div><button id="edit-btn" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
 								<div><button id="delete-btn" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>

@@ -37,6 +37,10 @@ $(function(){
 					$('#new-entry').show(400);
 				});
 
+
+				$('#email-popover').popover();
+				$('#sms-popover').popover();
+
 				//New memory input
 				$('#new-entry-form').submit(function(){
 					var hr = $('<hr />');
@@ -44,10 +48,33 @@ $(function(){
 					hr.appendTo("#entries");
 					x.appendTo("#entries");
 					x.show(400);
-					
+
+					if ($("#new-entry-email").prop('checked')){
+						console.log("hob")
+						$(x.find("#envelope-gylph")).css('display','inline');
+						$(x.find("#remind-by-email")).prop('checked',true);
+					}
+					else{
+						console.log("not hob");
+						$(x.find("#envelope-gylph")).css('display','none');
+						$(x.find("#remind-by-email")).prop('checked',false);
+					}
+
+					if ($("#new-entry-sms").prop('checked')){
+						console.log("7amada")
+						$(x.find("#sms-gylph")).css('display','inline');
+						$(x.find("#remind-by-sms")).prop('checked',true);
+					}
+					else{
+
+						$(x.find("#sms-gylph")).css('display','none');
+						$(x.find("#remind-by-sms")).prop('checked',false);
+					}
 
 					xText = x.find("#entry-text")
 					xText.html(($(this).find("#new-entry-text")).val());
+
+					console.log(($(this).find("#new-entry-text")).val());
 
 					date = ($(this).find("#new-entry-date")).val();
 					dateInFormat = new Date(date);
@@ -110,9 +137,18 @@ $(function(){
 					xDay = (x.find("#day")).text();
 					xText = (x.find("#entry-text")).text();
 
+					if((x.find("#remind-by-email")).prop("checked")){
+						$("#new-entry-email").prop("checked",true);
+					}
+					
+					if((x.find("#remind-by-sms")).prop("checked")){
+						$("#new-entry-sms").prop("checked",true);
+					}
+
 
 					$("#new-entry-date").val(monthToNum[xMonth]+"/"+xDay+"/"+xYear);
 					$("#new-entry-text").html(xText);
+
 
 					$(x).hide(function(){
 						$(this).remove();

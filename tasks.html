@@ -51,17 +51,17 @@
 		</nav>
 
 		<!-- The main screen -->
-		<div class="container" style="padding-top: 70px">
+		<div id="entries" class="container" style="padding-top: 70px">
 
 			<!-- The button for adding new entries -->
 			<button id="addEntry" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-plus"></span></button>
 
 			<!-- New task input dialogue -->
-			<div id="task-input">
-				<form id="task-input-form">
+			<div id="new-entry">
+				<form id="new-entry-form">
 					<div class="row input-entry">
 						<div class="col-sm-12">
-							<textarea class="task-input-description-field" placeholder="Enter the task"></textarea>
+							<textarea id="new-entry-text" class="entry-input-description-field task-input-description-field" placeholder="Enter the task"></textarea>
 						</div>
 					</div>
 					<div class="row">
@@ -70,56 +70,13 @@
 				</form>
 			</div>
 
-			<hr>
-
-			<!-- Coined HTML for editing existing task's dialogue -->
-			<div id="edit-task1">
-				<form id="task-input-form">
-					<div class="row input-entry">
-						<div class="col-sm-12">
-							<textarea class="task-input-description-field" placeholder="choose a gift for Aladeen from"></textarea>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-offset-10 col-sm-2"><input type="submit" class="btn btn-primary btn-block" value="Save"></div>
-					</div>
-				</form>
-			</div>
-
-			<!-- Coined task to be added when inputing a new entry -->
-			<div id="new-task" style="display:none;">
-				<div class="row entry">
-					<div class="col-sm-9 col-xs-6"> <p id="mem1text">choose a gift for Aladeen from</p> </div>
-					<div class="btn-group col-sm-3 col-xs-6">
-						<button id="check-btn1" type="button" class="btn   btn-default"><span class="glyphicon glyphicon-ok"></span></button>
-						<button id="edit-btn1" type="button"class="btn  btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
-						<button id="delete-btn1" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
-					</div>
-				</div>
-				<hr>
-			</div>
-
-			<!-- Coined HTML for editing existing task's dialogue -->
-			<div id="edit-task2">
-				<form id="task-input-form">
-					<div class="row input-entry">
-						<div class="col-sm-12">
-							<textarea class="task-input-description-field" placeholder="tell Mike to buy more diapers"></textarea>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-offset-10 col-sm-2"><input type="submit" class="btn btn-primary btn-block" value="Save"></div>
-					</div>
-				</form>
-			</div>
-
-			<!-- A given task entry -->
-			<div id="task-entry2" class="row entry">
-				<div class="col-sm-9 col-xs-6"><p id="mem2text">tell Mike to buy more diapers</p></div>
+			<!-- A task template -->
+			<div id="entry-block" class="row entry">
+				<div class="col-sm-9 col-xs-6"><span id="entry-text"> entry text </span></div>
 				<div class="btn-group col-sm-3 col-xs-6">
-					<button id="check-btn2" type="button" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span></button>
-					<button id="edit-btn2" type="button"class="btn  btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
-					<button id="delete-btn2" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
+					<button id="check-btn" type="button" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span></button>
+					<button id="edit-btn" type="button"class="btn  btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
+					<button id="delete-btn" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
 				</div>
 				<hr>
 			</div>
@@ -129,66 +86,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-		<script type="text/javascript">
-			$(function(){
-				$('#date').datepicker({});
-				$('#new-task').hide();
-				$('#task-input').hide();
-				$('#addEntry').click(function(){
-					$(this).hide(400);
-					$('#task-input').show(400);
-				});
-
-				//New task input
-				$('#task-input-form').submit(function(){
-					$('#addEntry').show(400);
-					$('#task-input').hide(400);
-					$('#new-task').show(400);
-					return false;
-				});
-
-				//Check buttons
-				$("#check-btn1").click(function(){
-					
-					if($("#mem1text").css("text-decoration")=="line-through"){
-						$("#mem1text").css("text-decoration","none");
-					}else{
-						$("#mem1text").css("text-decoration", "line-through");
-					}
-				});
-				$("#check-btn2").click(function(){
-					
-					if($("#mem2text").css("text-decoration")=="line-through"){
-						$("#mem2text").css("text-decoration","none");
-					}else{
-						$("#mem2text").css("text-decoration", "line-through");
-					}
-				});
-
-				//Task Erase buttons
-				$('#delete-btn1').click(function(){
-					$('#new-task').hide(400)
-				});
-				$('#delete-btn2').click(function(){
-					$('#task-entry2').hide(400)
-				});
-
-				//Task Edit buttons
-				$('#edit-task1').hide();
-				$('#edit-task2').hide();
-				$('#edit-btn1').click(function(){
-					$('#new-task').hide(400)
-					$('#edit-task1').show(400)
-				});
-				$('#edit-btn2').click(function(){
-					$('#task-entry2').hide()
-					$('#edit-task2').show(400)
-				});
-				$('#logout').click(function(){
-					window.location.href = "login.html";
-				});
-			});
-		</script>
+		<script src="js/tasksScript.js"> </script>
 		<script src="js/bootstrap-datepicker.min.js"></script>
 	</body>
 </html>

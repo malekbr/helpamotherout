@@ -60,8 +60,7 @@ $(function(){
 					var hr = $('<hr />');
 					var x = $("#entry-block").clone(true,true);	
 					x.attr("id", "");
-					x.addClass("entry-block")	
-					//x.appendTo("#entries");
+					x.addClass("entry-block");
 					x.show(400);
 					
 
@@ -127,6 +126,7 @@ $(function(){
 					$('#new-entry').hide(400);
 					$('#addEntry').show(400);
 					$('#invalid-date').hide();
+					$("#new-entry-text").html("");
 					document.getElementById("new-entry-form").reset();
 
 
@@ -135,7 +135,7 @@ $(function(){
 				});
 
 				//Memory Erase buttons
-				$('.delete-btn').click(function(){
+				$('#delete-btn').click(function(){
 					$(this.parentElement.parentElement.parentElement).hide(function(){
 						$($(this).prev()).remove();
 						$(this).remove();

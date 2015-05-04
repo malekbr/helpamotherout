@@ -91,15 +91,42 @@ body{
 	border-right: 2px solid #3c763d;
 }
 
-.text-holder{
+
+
+.tasks-text-holder{
+	border-radius: 7px;
+    background: #E9EAF0;
+    padding: 5px;
+}
+
+.tasks-text-style{
+	margin-left: 10px;
+	height:15px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+.mem-text-holder{
 	border-radius: 10px;
     background: #E9EAF0;
     padding: 5px;
     height: 155px;
 }
-#entry-text{
-	margin-left: 5px;
+.mem-text-style{
+	margin-left: 8px;
 	height:150px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.app-text-holder{
+	border-radius: 7px;
+    background: #E9EAF0;
+    padding: 5px;
+}
+
+.app-text-style{
+	margin-left: 10px;
+	height:40px;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }

@@ -52,7 +52,7 @@ $(function(){
 				$('#email-popover').popover();
 				$('#sms-popover').popover();
 
-				//New memory input
+				//New appointment input
 				$('#new-entry-form').submit(function(){
 					var hr = $('<hr />');
 					var x =$("#entry-block").clone(true,true);

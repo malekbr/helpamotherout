@@ -71,7 +71,7 @@
 					</div>
 
 					<!-- The main screen -->
-					<div id="entries" class = "col-sm-10">
+					<div id="entries" class = "col-sm-8">
 
 						<!-- The button for adding new entries -->
 						<button id="addEntry" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-plus"></span></button>
@@ -82,10 +82,10 @@
 								<div class="row input-entry">
 									<div class="col-sm-3">
 										<label><input id="new-entry-email"  type="checkbox">
-										<a id="email-popover" class="btn" data-content="Remind me by e-mail" rel="popover" data-placement="bottom"  data-trigger="hover"><img style="margin-left: -5px" src="images/envelope-glyph.png"></a></label>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+										<a id="email-popover" class="btn" data-content="Remind me by e-mail" rel="popover" data-placement="bottom"  data-trigger="hover"><img style="margin-left: -5px" alt="Remind me by email" src="images/envelope-glyph.png"></a></label>
 										<label>
 										<input id="new-entry-sms" type="checkbox"  >&#160;
-										<a id="sms-popover" class="btn" data-content="Remind me by text" rel="popover" data-placement="bottom"  data-trigger="hover"><img style="margin-left: -5px" src="images/sms-glyph.png"></a>
+										<a id="sms-popover" class="btn" data-content="Remind me by text" rel="popover" data-placement="bottom"  data-trigger="hover"><img style="margin-left: -5px" alt="Remind me by text" src="images/sms-glyph.png"></a>
 										</label>
 										<div id="date" class="input-group date" style="margin-top: 20px">
 											<input id="new-entry-date" type="text" placeholder="Enter the appointment's date" value="05/04/2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
@@ -128,14 +128,15 @@
 
 						<!-- An appointment template-->
 						<div id="entry-block" class="row entry">
-							<div class="col-sm-11"> <h3><span id="dateDescription"> <span id="month"> January </span> <span id="day">1</span><sup><span id="subscript">st</span></sup>, <span id="year"> 2013 </span></span>, <span id = "time"> </span><img id="envelope-gylph" style="margin-left: 10px"  src="images/envelope-glyph.png"> <img id="sms-gylph" style="margin-left: 10px" src="images/sms-glyph.png"></h3>
+							<div class="col-sm-12"> <h3><span id="dateDescription"> <span id="month"> January </span> <span id="day">1</span><sup><span id="subscript">st</span></sup>, <span id="year"> 2013 </span></span>, <span id = "time"> </span><img id="envelope-gylph" style="margin-left: 10px" alt="Remind me by e-mail" src="images/envelope-glyph.png"> <img id="sms-gylph" style="margin-left: 10px" alt="Remind me by text" src="images/sms-glyph.png"></h3>
 							<input id="remind-by-email" style="display:none"  type="checkbox">
 							<input id="remind-by-sms" style="display:none"  type="checkbox">
+							<div class = "row">
 							<div class="col-sm-10 app-text-holder"> 
 							<p id="entry-text" class="app-text-style"> entry text </p>
 							</div>
-							<div class="col-sm-1 modif"><button id="edit-btn" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button></div>
-							<div class="col-sm-1 modif"><button id="delete-btn" class="btn btn-block btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
+							<div id="appointmentModif" class="col-sm-2 modif btn-group"> <button id="edit-btn" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span></button><button id="delete-btn" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span></button></div>
+							</div>
 							</div>
 
 						

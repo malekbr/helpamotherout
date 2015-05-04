@@ -50,8 +50,8 @@ $(function(){
 
 				$('.imageFile').change(function(){
 					var filename = this.files[0].name;
-					if(filename.length > 18)
-						filename = filename.substr(0, 15) + "...";
+					if(filename.length > 15)
+						filename = filename.substr(0, 12) + "...";
 					$(this).parent().find(".uploadStatus").html("<strong>"+filename+"</strong>. Change file?");
 				});
 
@@ -136,7 +136,7 @@ $(function(){
 
 				//Memory Erase buttons
 				$('.delete-btn').click(function(){
-					$(this.parentElement.parentElement.parentElement).hide(function(){
+					$(this.parentElement.parentElement.parentElement.parentElement).hide(function(){
 						$($(this).prev()).remove();
 						$(this).remove();
 					});

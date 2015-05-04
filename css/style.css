@@ -101,7 +101,7 @@ body{
 
 .tasks-text-style{
 	margin-left: 10px;
-	height:15px;
+	height:18px;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
@@ -129,4 +129,9 @@ body{
 	height:40px;
 	overflow-y: scroll;
 	overflow-x: hidden;
+}
+
+
+#appointmentModif button{
+	width:50%;
 }

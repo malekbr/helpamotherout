@@ -167,7 +167,7 @@ $(function(){
 
 				//Appointment Erase buttons
 				$('#delete-btn').click(function(){
-					$(this.parentElement.parentElement.parentElement).hide(function(){
+					$(this.parentElement.parentElement.parentElement.parentElement).hide(function(){
 						$($(this).prev()).remove();
 						$(this).remove();
 					});
@@ -177,7 +177,7 @@ $(function(){
 				//Appointment Edit button
 
 				$('#edit-btn').click(function(){
-					x = $(this.parentElement.parentElement.parentElement)
+					x = $(this.parentElement.parentElement.parentElement.parentElement)
 					//deletes the <hr> element 
 					$(x.prev()).remove();
 					var dateOfEntry = x.attr('data-date');

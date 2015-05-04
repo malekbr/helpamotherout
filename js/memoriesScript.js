@@ -1,3 +1,14 @@
+function append_before(date) {
+	var entries = $('#entries').children('.entry-block').toArray();
+	for(var entryIndex in entries){
+		var entry = $(entries[entryIndex]);
+		var entryDate = entry.attr("data-date");
+		if(date>entryDate)
+			return entry;
+	}
+	return undefined;
+}
+
 $(function(){
 				var numToMonth={}
 				numToMonth["01"] = "January";
@@ -40,9 +51,10 @@ $(function(){
 				//New memory input
 				$('#new-entry-form').submit(function(){
 					var hr = $('<hr />');
-					var x =$("#entry-block").clone(true,true);		
-					hr.appendTo("#entries");
-					x.appendTo("#entries");
+					var x = $("#entry-block").clone(true,true);	
+					x.attr("id", "");
+					x.addClass("entry-block")	
+					//x.appendTo("#entries");
 					x.show(400);
 					
 
@@ -58,9 +70,21 @@ $(function(){
 
 						return false;
 					}
+					
+					console.log(date);
 					month = date.substring(0,2);
 					day = date.substring(3,5);
 					year = date.substring(6,10);
+
+					x.attr("data-date", year+month+day);
+					if (append_before(year+month+day) == undefined) {
+						hr.appendTo("#entries");
+						x.appendTo("#entries");
+					} else {
+						append_before(year+month+day).before(x);
+						append_before(year+month+day).before(hr);
+					}
+
 					subscript = "th"
 					if (day=="01" || day=="21" || day=="31"){
 						subscript = "st"
@@ -88,7 +112,6 @@ $(function(){
 					document.getElementById("new-entry-form").reset();
 					return false;
 				});
-
 
 				//Memory Erase buttons
 				$('.delete-btn').click(function(){

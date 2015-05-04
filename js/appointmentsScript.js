@@ -3,7 +3,7 @@ function append_before(date) {
 	for(var entryIndex in entries){
 		var entry = $(entries[entryIndex]);
 		var entryDate = entry.attr("data-date");
-		if(date>entryDate)
+		if(date<entryDate)
 			return entry;
 	}
 	return undefined;
@@ -38,7 +38,7 @@ $(function(){
 				monthToNum["December"] = "12";
 
 				$('.date').datepicker({});
-				$('#timepicker1').timepicker();
+				$('#new-entry-time').timepicker({defaultTime:false});
 				$('#new-entry').hide();
 				$('#entry-block').hide();
 				$('#invalid-date').hide();
@@ -55,9 +55,9 @@ $(function(){
 				//New memory input
 				$('#new-entry-form').submit(function(){
 					var hr = $('<hr />');
-					var x =$("#entry-block").clone(true,true);		
-					hr.appendTo("#entries");
-					x.appendTo("#entries");
+					var x =$("#entry-block").clone(true,true);
+					x.attr("id", "");
+					x.addClass("entry-block");	
 					x.show(400);
 
 					if ($("#new-entry-email").prop('checked')){
@@ -87,9 +87,11 @@ $(function(){
 
 					console.log(($(this).find("#new-entry-text")).val());
 
+					var time = $(this).find("#new-entry-time").val();
+
 					date = ($(this).find("#new-entry-date")).val();
 					dateInFormat = new Date(date);
-					if(dateInFormat == "Invalid Date"){
+					if(dateInFormat == "Invalid Date" || time.trim().length == 0){
 						x.remove();
 						hr.remove();
 						$('#invalid-date').show();
@@ -99,37 +101,72 @@ $(function(){
 					month = date.substring(0,2);
 					day = date.substring(3,5);
 					year = date.substring(6,10);
-					subscript = "th"
-					if (day=="01" || day=="21" || day=="31"){
-						subscript = "st"
-					}
-					else if( day=="02" || day == "22"){
-						subscript = "2nd"
-					}
-					else if( day=="03" || day =="23"){
-						subscript= "rd"
+
+					timeperiod = time.substring(6,8);
+					hour = time.substring(0,2);
+					minute = time.substring(3,5);
+					if(hour == "12")
+						hour = "00";
+
+					var appointmentDay = parseInt(year+month+day, 10);
+					var today = new Date();
+					today = today.getFullYear()*10000 + (today.getMonth()+1)*100 + today.getDate();
+
+					var dateAttr = year+month+day+timeperiod+hour+minute;
+					x.attr("data-date", dateAttr);
+					if (append_before(dateAttr) == undefined) {
+						hr.appendTo("#entries");
+						x.appendTo("#entries");
+					} else {
+						append_before(dateAttr).before(x);
+						append_before(dateAttr).before(hr);
 					}
 
+					switch(appointmentDay - today){
+					case 0:
+						x.find("#dateDescription").text('Today');
+						break;
+					case 1:
+						x.find("#dateDescription").text('Tomorrow');
+						break;
 
-					xMonth = x.find("#month");
-					xMonth.html(numToMonth[month]);
-					xDay = x.find("#day");
-					xDay.html(day);
-					xYear = x.find("#year");
-					xYear.html(year);
-					xSubscript = x.find("#subscript");
-					xSubscript.html(subscript)
+					default:
+						subscript = "th"
+						if (day=="01" || day=="21" || day=="31"){
+							subscript = "st"
+						}
+						else if( day=="02" || day == "22"){
+							subscript = "2nd"
+						}
+						else if( day=="03" || day =="23"){
+							subscript= "rd"
+						}
+
+
+						xMonth = x.find("#month");
+						xMonth.html(numToMonth[month]);
+						xDay = x.find("#day");
+						xDay.html(day);
+						xYear = x.find("#year");
+						xYear.html(year);
+						xSubscript = x.find("#subscript");
+						xSubscript.html(subscript);
+
+					}
+
+					x.find("#time").text(time);
 					
 					$('#new-entry').hide(400);
 					$('#addEntry').show(400);
 					$('#invalid-date').hide();
+					$("#new-entry-text").html("");
 					document.getElementById("new-entry-form").reset();
 					return false;
 				});
 
 
-				//Memory Erase buttons
-				$('.delete-btn').click(function(){
+				//Appointment Erase buttons
+				$('#delete-btn').click(function(){
 					$(this.parentElement.parentElement.parentElement).hide(function(){
 						$($(this).prev()).remove();
 						$(this).remove();
@@ -137,16 +174,24 @@ $(function(){
 						
 				});
 
-				//Memory Edit button
+				//Appointment Edit button
 
 				$('#edit-btn').click(function(){
 					x = $(this.parentElement.parentElement.parentElement)
 					//deletes the <hr> element 
 					$(x.prev()).remove();
-					xMonth = (x.find("#month")).text();
-					xYear = (x.find("#year")).text();
-					xDay = (x.find("#day")).text();
+					var dateOfEntry = x.attr('data-date');
+					console.log(dateOfEntry);
+					xYear = dateOfEntry.substring(0,4);//(x.find("#month")).text();
+					xMonth = dateOfEntry.substring(4,6);//(x.find("#year")).text();
+					xDay = dateOfEntry.substring(6,8);//(x.find("#day")).text();
 					xText = (x.find("#entry-text")).text();
+					xPeriod = dateOfEntry.substring(8, 10);
+					xHour = dateOfEntry.substring(10, 12);
+					xMinute = dateOfEntry.substring(12, 14);
+
+					if(xHour == "00")
+						xHour = "12";
 
 					if((x.find("#remind-by-email")).prop("checked")){
 						$("#new-entry-email").prop("checked",true);
@@ -157,8 +202,9 @@ $(function(){
 					}
 
 
-					$("#new-entry-date").val(monthToNum[xMonth]+"/"+xDay+"/"+xYear);
+					$("#new-entry-date").val(xMonth+"/"+xDay+"/"+xYear);
 					$("#new-entry-text").html(xText);
+					$("#new-entry-time").val(xHour + ":" + xMinute + " " +xPeriod);
 
 
 					$(x).hide(function(){

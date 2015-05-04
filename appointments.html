@@ -91,12 +91,12 @@
 											<input id="new-entry-date" type="text" placeholder="Enter the appointment's date" value="05/04/2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 										</div>
 										<div class="input-append input-group bootstrap-timepicker">
-							          <input id="timepicker1" type="text" class="form-control input-small">
+							          <input id="new-entry-time" type="text" class="form-control input-small">
 							          <span class="input-group-addon add-on"><span class="glyphicon glyphicon-time"></span></span>
 							      </div>
 									</div>
 									<div class="entry-input-description col-sm-9">
-										<textarea id="new-entry-text" class="entry-input-description-field" placeholder="Enter the appointment's description"></textarea>
+										<textarea id="new-entry-text" class="entry-input-description-field " placeholder="Enter the appointment's description"></textarea>
 									</div>
 								</div>
 								<div class="row">
@@ -110,13 +110,13 @@
 
  							<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
   							<span class="sr-only">Error:</span>
-  							Enter a valid date
+  							Enter a valid date/time
 						</div>
 
-						<hr>
+						<!-- <hr id="dividing-line"> -->
 
 						<!-- Today's tasks -->
-						<div class="row entry">
+						<!--<div class="row entry">
 							<div id="today" class="col-sm-2 modif text-success">
 								<div><span class="glyphicon glyphicon-exclamation-sign exclamation"></span></div>
 								<div><h3>Today</h3></div>
@@ -124,11 +124,11 @@
 							<div id="app-today1" class="col-sm-10"> Play date with Jasmine! 
 								 <button id="delete-appointment" class="btn btn-link"><span class="glyphicon glyphicon-remove"></span></button>
 							</div>
-						</div>
+						</div>!-->
 
 						<!-- An appointment template-->
 						<div id="entry-block" class="row entry">
-							<div class="col-sm-11"> <h3><span id="month"> January </span> <span id="day">1</span><sup><span id="subscript">st</span></sup>, <span id="year"> 2013 </span><img id="envelope-gylph" style="margin-left: 10px"  src="images/envelope-glyph.png"> <img id="sms-gylph" style="margin-left: 10px" src="images/sms-glyph.png"></h3>
+							<div class="col-sm-11"> <h3><span id="dateDescription"> <span id="month"> January </span> <span id="day">1</span><sup><span id="subscript">st</span></sup>, <span id="year"> 2013 </span></span>, <span id = "time"> </span><img id="envelope-gylph" style="margin-left: 10px"  src="images/envelope-glyph.png"> <img id="sms-gylph" style="margin-left: 10px" src="images/sms-glyph.png"></h3>
 							<input id="remind-by-email" style="display:none"  type="checkbox">
 							<input id="remind-by-sms" style="display:none"  type="checkbox">
 							<span id="entry-text"> entry text </span></div>

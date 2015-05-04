@@ -11,6 +11,7 @@
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker3.min.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-timepicker.min.css">
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -79,14 +80,20 @@
 						<div id="new-entry">
 							<form id="new-entry-form">
 								<div class="row input-entry">
-									<div style="margin-top: 20px" class="col-sm-3">
-										<input id="new-entry-email"  type="checkbox">
-										<a id="email-popover" class="btn" href="#" data-content="remind me by e-mail" rel="popover" data-placement="bottom"  data-trigger="hover"><img style="margin-left: -5px" src="images/envelope-glyph.png"></a>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+									<div class="col-sm-3">
+										<label><input id="new-entry-email"  type="checkbox">
+										<a id="email-popover" class="btn" data-content="Remind me by e-mail" rel="popover" data-placement="bottom"  data-trigger="hover"><img style="margin-left: -5px" src="images/envelope-glyph.png"></a></label>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+										<label>
 										<input id="new-entry-sms" type="checkbox"  >&#160;
-										<a id="sms-popover" class="btn" href="#" data-content="remind me by sms" rel="popover" data-placement="bottom"  data-trigger="hover"><img style="margin-left: -5px" src="images/sms-glyph.png"></a><br>
+										<a id="sms-popover" class="btn" data-content="Remind me by text" rel="popover" data-placement="bottom"  data-trigger="hover"><img style="margin-left: -5px" src="images/sms-glyph.png"></a>
+										</label>
 										<div id="date" class="input-group date" style="margin-top: 20px">
 											<input id="new-entry-date" type="text" placeholder="Enter the appointment's date" value="05/04/2015" class="form-control"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 										</div>
+										<div class="input-append input-group bootstrap-timepicker">
+							          <input id="timepicker1" type="text" class="form-control input-small">
+							          <span class="input-group-addon add-on"><span class="glyphicon glyphicon-time"></span></span>
+							      </div>
 									</div>
 									<div class="entry-input-description col-sm-9">
 										<textarea id="new-entry-text" class="entry-input-description-field" placeholder="Enter the appointment's description"></textarea>
@@ -142,8 +149,9 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-		<script src="js/appointmentsScript.js"> </script>
 
 		<script src="js/bootstrap-datepicker.min.js"></script>
+		<script src="js/bootstrap-timepicker.min.js"></script>
+		<script src="js/appointmentsScript.js"> </script>
 	</body>
 </html>

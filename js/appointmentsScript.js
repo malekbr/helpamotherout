@@ -1,3 +1,13 @@
+function append_before(date) {
+	var entries = $('#entries').children('.entry-block').toArray();
+	for(var entryIndex in entries){
+		var entry = $(entries[entryIndex]);
+		var entryDate = entry.attr("data-date");
+		if(date>entryDate)
+			return entry;
+	}
+	return undefined;
+}
 $(function(){
 				var numToMonth={}
 				numToMonth["01"] = "January";
@@ -28,6 +38,7 @@ $(function(){
 				monthToNum["December"] = "12";
 
 				$('.date').datepicker({});
+				$('#timepicker1').timepicker();
 				$('#new-entry').hide();
 				$('#entry-block').hide();
 				$('#invalid-date').hide();

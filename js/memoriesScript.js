@@ -146,14 +146,13 @@ $(function(){
 				//Memory Edit button
 
 				$('#edit-btn').click(function(){
-					x = $(this.parentElement.parentElement.parentElement)
+					x = $(this.parentElement.parentElement.parentElement.parentElement)
 					//deletes the <hr> element 
 					$(x.prev()).remove();
 					xMonth = (x.find("#month")).text();
 					xYear = (x.find("#year")).text();
 					xDay = (x.find("#day")).text();
 					xText = (x.find("#entry-text")).text();
-
 
 					$("#new-entry-date").val(monthToNum[xMonth]+"/"+xDay+"/"+xYear);
 					$("#new-entry-text").html(xText);
@@ -164,7 +163,6 @@ $(function(){
 
 					$('#addEntry').hide(400);
 					$('#new-entry').show(400);
-
 
 
 				});

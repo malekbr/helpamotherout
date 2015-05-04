@@ -37,6 +37,13 @@ $(function(){
 					$('#new-entry').show(400);
 				});
 
+				$('.imageFile').change(function(){
+					var filename = this.files[0].name;
+					if(filename.length > 18)
+						filename = filename.substr(0, 15) + "...";
+					$(this).parent().find(".uploadStatus").html("<strong>"+filename+"</strong>. Change file?");
+				});
+
 				//New memory input
 				$('#new-entry-form').submit(function(){
 					var hr = $('<hr />');
@@ -58,6 +65,18 @@ $(function(){
 
 						return false;
 					}
+
+					var fileUploadButton = $(this).find('.imageFile');
+					if(fileUploadButton.val()){
+						var image = fileUploadButton[0].files[0];
+						var reader = new FileReader();
+						reader.onload = function(e){
+							x.find('.thumbnail img').attr("src", e.target.result);
+						};
+						//console.log(reader.readAsDataUrl);
+						reader.readAsDataURL(image);
+					}
+
 					month = date.substring(0,2);
 					day = date.substring(3,5);
 					year = date.substring(6,10);
@@ -73,6 +92,7 @@ $(function(){
 					}
 
 
+
 					xMonth = x.find("#month");
 					xMonth.html(numToMonth[month]);
 					xDay = x.find("#day");
@@ -86,6 +106,9 @@ $(function(){
 					$('#addEntry').show(400);
 					$('#invalid-date').hide();
 					document.getElementById("new-entry-form").reset();
+
+
+
 					return false;
 				});
 
@@ -131,3 +154,4 @@ $(function(){
 					window.location.href = "login.html";
 				});
 			});
+
